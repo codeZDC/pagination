@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>codeZ分页</title>
+		<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="pagination.css" />
+		<style type="text/css">
+			.m{
+				margin-top: 15%;
+			}
+			.current{
+				border: 1px solid gray !important;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="" class="container">
+			<div class="row m">
+				<center>
+				<h1>分页测试</h1></center>
+			</div>
+			<div class="row m">
+				<div class="col-xs-9 col-xs-offset-3">
+					<div id="paginationBar"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script type="text/javascript" src="pagination.js"></script>
+	<script type="text/javascript">
+		var total = 100;
+
+		function init(currentPage) {
+			params.currentPage = currentPage || 1;
+			$("#paginationBar").pagination(total, params);
+		}
+		var params = {
+			paginationBarCount: 10, //主体页数
+			callback: function(currentPage) {
+				init(currentPage);
+				alert('跳转到第 '+currentPage+' 页');
+			},
+			currentPage: 1,
+			pageSize: 5,
+			prev_text: "上一页",
+			next_text: "下一页"
+		};
+		init();
+	</script>
+
+</html>
